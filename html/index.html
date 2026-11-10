@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car HUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hud" class="hud bottom-right hidden">
+        <div class="top-row">
+            <div class="speed-block">
+                <span id="speed" class="speed">0</span>
+                <span id="units" class="units">KM/H</span>
+            </div>
+            <div class="gear-block">
+                <span class="label">GEAR</span>
+                <span id="gear" class="gear">N</span>
+            </div>
+        </div>
+
+        <div class="rpm-bar"><div id="rpm" class="rpm-fill"></div></div>
+
+        <div class="bottom-row">
+            <div class="stat">
+                <span class="label">FUEL</span>
+                <div class="mini-bar"><div id="fuel" class="mini-fill"></div></div>
+            </div>
+            <div class="icons">
+                <span id="engine" class="icon" title="Engine">ENG</span>
+                <span id="lights" class="icon" title="Lights">LGT</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

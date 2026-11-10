@@ -1,0 +1,121 @@
+:root {
+    --accent: #38bdf8;
+    --bg: rgba(10, 14, 22, 0.78);
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --warning: #f97316;
+    --danger: #ef4444;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    user-select: none;
+}
+
+.hud {
+    position: absolute;
+    bottom: 3vh;
+    width: 230px;
+    padding: 14px 16px 12px;
+    background: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    color: var(--text);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hud.bottom-right  { right: 2vw; }
+.hud.bottom-left   { left: 2vw; }
+.hud.bottom-center { left: 50%; transform: translateX(-50%); }
+
+.hud.hidden { opacity: 0; transform: translateY(12px); }
+.hud.bottom-center.hidden { transform: translate(-50%, 12px); }
+
+.top-row, .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.speed-block { display: flex; align-items: baseline; gap: 6px; }
+
+.speed {
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.units, .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.gear-block { display: flex; flex-direction: column; align-items: center; }
+
+.gear {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.1;
+}
+
+.rpm-bar {
+    margin: 10px 0;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.rpm-fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.1s linear, background 0.2s;
+}
+
+.rpm-fill.redline { background: var(--danger); }
+
+.stat { display: flex; align-items: center; gap: 8px; }
+
+.mini-bar {
+    width: 90px;
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.mini-fill {
+    height: 100%;
+    width: 100%;
+    background: var(--text);
+    transition: width 0.3s;
+}
+
+.mini-fill.low { background: var(--warning); }
+
+.icons { display: flex; gap: 6px; }
+
+.icon {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.icon.on      { color: var(--accent); }
+.icon.warning { color: var(--warning); }
+.icon.danger  { color: var(--danger); }
